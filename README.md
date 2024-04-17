@@ -4,7 +4,7 @@
 
 The Escape Vanilla JS Challenge is an interactive web-based project designed to test and enhance your understanding of Vanilla JavaScript, focusing on debugging skills, problem-solving, and the concept of abstraction. Participants will navigate through three themed "rooms," each presenting a unique challenge that requires them to debug and correct given JavaScript code to proceed. This adventure is themed around escaping the confines of Vanilla JavaScript to advance towards learning React.
 
-![alt text](<[JSL10 Solution].gif>)
+![JSL10 Solution](https://github.com/Dimpho-Molepo/DIMMOL405_BCL2401_GroupA_DimphoMolepo_JSL10/assets/136012291/0b5087fd-6493-4484-8b32-ed0ec6ebbb5d)
 
 ## Getting Started 
 
