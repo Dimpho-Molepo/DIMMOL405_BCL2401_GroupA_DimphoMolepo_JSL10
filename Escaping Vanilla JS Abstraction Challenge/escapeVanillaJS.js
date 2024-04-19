@@ -1,31 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 🪲 Bug: Incorrect ID used for attaching the event listener
+  // Event listener to the "Solve Room 1" button
   document.getElementById("solveRoom1").addEventListener("click", () => {
     fetch("books.json")
-      .then((response) => response.json())
+      .then((response) => response.json()) 
       .then((books) => {
-        const mostRecentBook = findMostRecentBook(books);
-        // 🪲 Bug: Incorrect element ID
+        const mostRecentBook = findMostRecentBook(books); // Find the most recent book Display the title of the most recent book in the "resultRoom" element
         document.getElementById("room1Result").textContent = `The key to the next room is: ${mostRecentBook.title}`;
       });
   });
 
   document.getElementById("solveRoom2").addEventListener("click", () => {
-    const jsConcepts = new Set(["closure","scope","hoisting","prototypes","this","event loop"]);
-    // 🪲 Bug: What's mssing from JS concepts?
+    const jsConcepts = new Set(["closure","scope","hoisting","prototypes","this","event loop",]);
     const reactConcepts = new Set(["components", "jsx", "hooks", "async"]);
-    // 🪲 Bug: Incorrect function call
+    // Find the common concepts between the two sets and display them in the "resultRoom" element
     const commonConcepts = findIntersection(jsConcepts, reactConcepts);
     document.getElementById("room2Result").textContent = `The code to unlock the door is: ${Array.from(commonConcepts).join(", ")}`;
   });
 
-  // 🪲 Bug: Asynchronous function ?
   document.getElementById("solveRoom3").addEventListener("click", async () => {
     fetch("directions.json")
       .then((response) => response.json())
-      .then((directions) => {
-        navigateLabyrinth(directions).then((message) => {
-          // 🪲 Bug: Incorrect method
+      .then((directions) => {navigateLabyrinth(directions)
+        // Display the message in the "room3Result" element
+        .then((message) => {
           document.getElementById("room3Result").textContent = message;
         });
       });
@@ -33,17 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function findMostRecentBook(books) {
-  // 🪲 Bug: Logic error
+  // Returns the most recent book
   return books.reduce((mostRecent, book) => new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent);
 }
 
 function findIntersection(setA, setB) {
-  // 🪲 Bug: Incorrect logic
+  // Create a new set populated with the intersection of two sets
   const intersection = new Set([...setA].filter((propertry) => setB.has(propertry)));
   return intersection;
 }
 
 async function navigateLabyrinth(directions) {
+  // 🟥 Extra feature: Loader animation
   const loader = document.createElement("div");
   loader.style.width = "32px";
   loader.style.height = "32px";
@@ -56,6 +54,7 @@ async function navigateLabyrinth(directions) {
   document.getElementById("room3Result").appendChild(loader);
 
   for (let direction of directions) {
+    // Wait for 1 second before simulating the next step
     await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(`Navigating: ${direction.step}`);
   }
