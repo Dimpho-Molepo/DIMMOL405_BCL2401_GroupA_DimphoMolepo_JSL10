@@ -36,8 +36,7 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
   // Create a new set populated with the intersection of two sets
-  const intersection = new Set([...setA].filter((propertry) => setB.has(propertry)));
-  return intersection;
+  return new Set([...setA].filter((propertry) => setB.has(propertry)));
 }
 
 async function navigateLabyrinth(directions) {
